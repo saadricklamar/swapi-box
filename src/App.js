@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import WelcomeHome from './WelcomeHome.js';
 
-function App() {
-  return (
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      opening: ''
+    }
+  }
+
+  fetchMovieCrawl = (arry) => {
+    let movie = arry[0].opening_crawl;
+    return Promise.all(movie);
+  }
+
+  componentDidMount() {
+    const url = 'https://swapi.co/api/films';
+    fetch(url)
+      .then(response => response.json())
+      .then(results => this.fetchMovieCrawl(results.results))
+      .then(opening => this.setState({opening}))
+      .catch(err => console.log(err))
+  }
+
+
+  render() {
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <WelcomeHome openingCrawl={this.state.opening}/>
     </div>
-  );
+    );
+  }
 }
 
 export default App;

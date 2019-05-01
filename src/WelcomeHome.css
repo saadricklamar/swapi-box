@@ -1,0 +1,115 @@
+.App {
+    text-align: center;
+  }
+  .container {
+    display: grid;
+    height: 1000px;
+    grid-template-columns: 15% 88%;
+    grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+    "sidebar main";
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    width: 100%;
+    grid-row: span 6;
+    background-color: #104F55;
+    padding-top: 200px;
+  }
+
+  header {
+    grid-area: header;
+    grid-row: span 1;
+    background-color: #9EC5AB;
+    border-bottom: 2px solid #CCD2D5;
+    height: 200px;
+    width: 100%;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  main {
+    grid-area: main;
+    grid-row: span 1;
+    background-color: #DBE3E6;
+    height: 850px;
+    width: 100%;
+    display: flex;
+    margin: 0;
+
+  }
+
+
+  .sidebar button {
+    width: 200px;
+    height: 100px;
+    background-color: #32746D;
+    border: none;
+    color: #AFBCC2;
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    padding: 0 0 0 22px;
+    outline: none;
+    font-size: 36px;
+  }
+  
+  .sidebar button:hover {
+    color: white;
+    background-color: #9EC5AB;
+    transform: translate(0, 1px);
+    cursor: pointer;
+  }
+  
+  
+  .scroll-up {
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+   }
+
+   .scroll-up p {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    line-height: 50px;
+    font-size: 26px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform:translateY(100%);
+    -webkit-transform:translateY(100%);	
+    transform:translateY(100%);
+    /* Apply animation to this element */	
+    -moz-animation: scroll-up 5s linear infinite;
+    -webkit-animation: scroll-up 5s linear infinite;
+    animation: scroll-up 5s linear infinite;
+   }
+   /* Move it (define the animation) */
+   @-moz-keyframes scroll-up {
+    0%   { -moz-transform: translateY(100%); }
+    100% { -moz-transform: translateY(-100%); }
+   }
+   @-webkit-keyframes scroll-up {
+    0%   { -webkit-transform: translateY(100%); }
+    100% { -webkit-transform: translateY(-100%); }
+   }
+   @keyframes scroll-up {
+    0%   { 
+    -moz-transform: translateY(100%); /* Browser bug fix */
+    -webkit-transform: translateY(100%); /* Browser bug fix */
+    transform: translateY(100%); 		
+    }
+    100% { 
+    -moz-transform: translateY(-100%); /* Browser bug fix */
+    -webkit-transform: translateY(-100%); /* Browser bug fix */
+    transform: translateY(-100%); 
+    }
+   }
