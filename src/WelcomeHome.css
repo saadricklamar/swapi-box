@@ -3,7 +3,7 @@
   }
   .container {
     display: grid;
-    height: 1000px;
+    height: 1500px;
     grid-template-columns: 15% 88%;
     grid-template-areas:
     "sidebar header"
@@ -15,16 +15,15 @@
     grid-area: sidebar;
     width: 100%;
     grid-row: span 6;
-    background-color: #104F55;
+    background-color: #41506B ;
     padding-top: 200px;
   }
 
   header {
     grid-area: header;
     grid-row: span 1;
-    background-color: #9EC5AB;
-    border-bottom: 2px solid #CCD2D5;
-    height: 200px;
+    background-color: #1B4C9B;
+    height: 100px;
     width: 100%;
     font-size: 30px;
     margin: 0;
@@ -32,25 +31,33 @@
   }
 
   h1 {
-    margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 55px;
+    margin-top: 0;
+    font-size: 25px;
+    font-family: 'Prompt', sans-serif;
   }
 
   main {
     grid-area: main;
     grid-row: span 1;
     background-color: #DBE3E6;
-    height: 850px;
+    height: 1500px;
     width: 100%;
     display: flex;
     margin: 0;
-
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(./images/space.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
-
 
   .sidebar button {
     width: 200px;
     height: 100px;
-    background-color: #32746D;
+    background-color: #3E619B;
     border: none;
     color: #AFBCC2;
     font-weight: bold;
@@ -68,7 +75,6 @@
     cursor: pointer;
   }
   
-  
   .scroll-up {
     overflow: hidden;
     position: relative;
@@ -76,21 +82,21 @@
    }
 
    .scroll-up p {
+    color: white;
     position: absolute;
     width: 100%;
-    height: 50%;
-    margin: 0;
-    line-height: 50px;
-    font-size: 26px;
+    height: 80%;
+    line-height: 80px;
+    font-size: 36px;
     text-align: center;
     /* Starting position */
     -moz-transform:translateY(100%);
     -webkit-transform:translateY(100%);	
     transform:translateY(100%);
     /* Apply animation to this element */	
-    -moz-animation: scroll-up 5s linear infinite;
-    -webkit-animation: scroll-up 5s linear infinite;
-    animation: scroll-up 5s linear infinite;
+    -moz-animation: scroll-up 10s linear infinite;
+    -webkit-animation: scroll-up 10s linear infinite;
+    animation: scroll-up 10s linear infinite;
    }
    /* Move it (define the animation) */
    @-moz-keyframes scroll-up {

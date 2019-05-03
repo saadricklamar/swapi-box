@@ -6,7 +6,7 @@ class WelcomeHome extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      ideas: []
+   
     }
   }
 
@@ -15,16 +15,17 @@ class WelcomeHome extends Component {
     <div className="App">
      <section className='container'>
       <section className='sidebar'>
-         <button>People</button>
-         <button>Planets</button>
-         <button>Vehicles</button>
+         <h1>SWAPIBox</h1>
+         <button value='people' onClick={this.props.display}>People</button>
+         <button value='planets' onClick={this.props.display}>Planets</button>
+         <button value='vehicles' onClick={this.props.display}>Vehicles</button>
          <button>Films</button>
          <button>Species</button>
          <button>Starships</button>
       </section>
       <section>
         <header>
-          <h1>SWAPIBox</h1>
+          
         </header>
         <main className='scroll-up'>
           <p>{this.props.openingCrawl}</p>
