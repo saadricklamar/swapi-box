@@ -17,8 +17,8 @@ class WelcomeHome extends Component {
       <section className='sidebar'>
          <h1>SWAPIBox</h1>
          <i class="fab fa-galactic-senate"></i>
-         <button value='people' onClick={this.props.display} class='active'>People</button>
-         <button value='planets' onClick={this.props.display}>Planets</button>
+         <button value='people' onClick={this.props.displayPeople} class='active'>People</button>
+         <button value='planets' onClick={this.props.displayPlanets}>Planets</button>
          <button value='vehicles' onClick={this.props.display}>Vehicles</button>
          <button>Films</button>
          <button>Species</button>
