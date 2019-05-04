@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Cards.css';
+import './People.css';
 
 
-const Cards = (props) => {
-  const cardInfo = props.cardsArray.map(card => {
+const People = (props) => {
+  const cardInfo = props.people.map(card => {
       let personName = card.name;
-      return  <article className='cards'>
+      return  <article className='people'>
                 <img src={require(`../images/${personName}.jpeg`)}/>
                 <h2>{card.name}</h2>
                 <h2>Species: {card.species}</h2>
@@ -22,4 +22,4 @@ const Cards = (props) => {
   
 }
 
-export default Cards;
+export default People;
