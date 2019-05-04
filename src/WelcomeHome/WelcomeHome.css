@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+    font-family: 'Orbitron', sans-serif;
   }
   .container {
     display: grid;
@@ -17,6 +18,7 @@
     grid-row: span 6;
     background-color: #41506B ;
     padding-top: 200px;
+    
   }
 
   header {
@@ -36,7 +38,6 @@
     left: 55px;
     margin-top: 0;
     font-size: 25px;
-    font-family: 'Prompt', sans-serif;
   }
 
   main {
@@ -47,7 +48,7 @@
     width: 100%;
     display: flex;
     margin: 0;
-    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(./images/space.jpg) no-repeat center center fixed;
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(../images/space.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -65,7 +66,8 @@
     margin: 0;
     padding: 0 0 0 22px;
     outline: none;
-    font-size: 36px;
+    font-size: 30px;
+    font-family: 'Orbitron', sans-serif;
   }
   
   .sidebar button:hover {
@@ -73,6 +75,44 @@
     background-color: #9EC5AB;
     transform: translate(0, 1px);
     cursor: pointer;
+  }
+
+  .sidebar button:focus {
+    background: pink;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
+  }
+
+  header button {
+    width: 180px;
+    height: 50px;
+    background-color: #3E619B;
+    border: none;
+    color: #AFBCC2;
+    font-weight: bold;
+    text-align: left;
+    margin: 25px 0 0 1000px;
+    padding: 0 0 0 22px;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  header button:hover {
+    color: white;
+    background-color: #9EC5AB;
+    transform: translate(0, 1px);
+    cursor: pointer;
+  }
+
+  header button:focus {
+    background: pink;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
   }
   
   .scroll-up {
@@ -118,4 +158,56 @@
     -webkit-transform: translateY(-100%); /* Browser bug fix */
     transform: translateY(-100%); 
     }
+   }
+
+   .scroll-right {
+    height: 100px;	
+    overflow: hidden;
+    position: relative;
+   }
+
+   .scroll-right p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+    line-height: 50px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform:translateX(-100%);
+    -webkit-transform:translateX(-100%);	
+    transform:translateX(-100%);
+    /* Apply animation to this element */	
+    -moz-animation: scroll-right 15s linear infinite;
+    -webkit-animation: scroll-right 15s linear infinite;
+    animation: scroll-right 15s linear infinite;
+   }
+   /* Move it (define the animation) */
+   @-moz-keyframes scroll-right {
+    0%   { -moz-transform: translateX(-100%); }
+    100% { -moz-transform: translateX(100%); }
+   }
+   @-webkit-keyframes scroll-right {
+    0%   { -webkit-transform: translateX(-100%); }
+    100% { -webkit-transform: translateX(100%); }
+   }
+   @keyframes scroll-right {
+    0%   { 
+    -moz-transform: translateX(-100%); /* Browser bug fix */
+    -webkit-transform: translateX(-100%); /* Browser bug fix */
+    transform: translateX(-100%); 		
+    }
+    100% { 
+    -moz-transform: translateX(100%); /* Browser bug fix */
+    -webkit-transform: translateX(100%); /* Browser bug fix */
+    transform: translateX(100%); 
+    }
+   }
+
+   .fa-galactic-senate {
+     position: absolute;
+     top: 80px;
+     left: 80px;
+     font-size: 76px;
+     color: white;
    }
