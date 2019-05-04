@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import WelcomeHome from './WelcomeHome.js';
-import Cards from './Cards.js';
+import WelcomeHome from '../WelcomeHome/WelcomeHome';
+import Cards from '../Cards/Cards';
 
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   fetchMovieCrawl = (arry) => {
-    let movie = arry[0].opening_crawl;
+    let movie = arry[0].opening_crawl + '\n' + arry[0].title + '\n' + arry[0].release_date;
     return Promise.all(movie);
   }
 
