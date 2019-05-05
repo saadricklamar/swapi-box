@@ -47,8 +47,19 @@ describe('App', () => {
     wrapper.setState({people: mockPeople})
     wrapper.instance().displayPeople(mockEvent)
     expect(window.fetch).toHaveBeenCalledWith(url)
+  });
+  it('should return a parsed response if status is ok', async () => {
+    const result = await mockDisplayPeople(mockEvent);
+    expect(result).toEqual(mockPeople);
   })
-
+  it('should return an error if status is not ok', async () => {
+    window.fetch = jest.fn().mockImplementataion(() => {
+        return Promise.resolve({
+            ok: false
+        })
+    })
+    await expect(displayPeople()).rejects.toEqual(Error('Error'))
+  })
   it('sets the state of buttonValue when a button is clicked', () => {
     expect(wrapper.state('buttonValue')).toEqual('')
     const mockEvent = {target:{value: 'people'}}
@@ -61,9 +72,4 @@ describe('App', () => {
     wrapper.instance().displayPeople(mockEvent);
     expect(wrapper.state('movieCrawl')).toEqual(false);
   });
-  it('calls the updateGroceryList callback after adding a new grocery', () => {
-  })
-
-  it('sets the error in state if the fetch fails', () => {
-  })
 });

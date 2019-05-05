@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './People.css';
 
 
@@ -11,6 +11,7 @@ const People = (props) => {
                 <h2>Species: {card.species}</h2>
                 <h2>Homeworld: {card.homeworld}</h2>
                 <h2>Population: {card.population}</h2>
+                <i class="far fa-star"></i>
             </article>
   })
     return (

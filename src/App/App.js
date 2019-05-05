@@ -3,6 +3,7 @@ import './App.css';
 import WelcomeHome from '../WelcomeHome/WelcomeHome';
 import People from '../People/People';
 import Planets from '../Planets/Planets';
+import Vehicles from '../Vehicles/Vehicles';
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
       
     }
   }
+  
 
   fetchMovieCrawl = (arry) => {
     let movie = arry[0].opening_crawl + '\n' + arry[0].title + '\n' + arry[0].release_date;
@@ -39,7 +41,7 @@ class App extends Component {
     this.setState({movieCrawl: false})
     this.setState({opening: ''})
     const url = 'https://swapi.co/api/people';
-    fetch(url)
+    return fetch(url)
       .then(response => response.json())
       .then(results => this.fetchSpecies(results.results))
       .then(results => this.fetchHomeworld(results))
@@ -75,32 +77,6 @@ class App extends Component {
     return Promise.all(homeworld);
   };
 
-  // displayPlanets = (e) => {
-  //   let buttonClicked = e.target.value;
-  //   this.setState({buttonValue: buttonClicked})
-  //   this.setState({movieCrawl: false})
-  //   this.setState({opening: ''})
-  //   const url = 'https://swapi.co/api/planets';
-  //   fetch(url)
-  //     .then(response => response.json())
-  //     .then(results => this.fetchResidents(results.results))
-  //     .then(data => this.setState({planets: data}))
-  //     .catch(err => console.log(err)) 
-  // }
-
-  // fetchResidents = (data) => {
-  //   console.log(data)
-  //   const inhabitants = data.map(planet => {
-  //     return fetch(planet.residents)
-  //       .then(response => response.json())
-  //       .then(result => {
-  //         const newPlanet = { ...planet, residents: result.name};
-  //         return newPlanet;
-  //       });
-  //   });
-  //   return Promise.all(inhabitants);
-  // };
-
   displayPlanets = (e) => {
     let buttonClicked = e.target.value;
     this.setState({buttonValue: buttonClicked})
@@ -135,10 +111,22 @@ class App extends Component {
     return fetch(resident).then(response => response.json());
   };
 
+  displayVehicles = (e) => {
+    let buttonClicked = e.target.value;
+    this.setState({buttonValue: buttonClicked})
+    this.setState({movieCrawl: false})
+    this.setState({opening: ''})
+    const url = 'https://swapi.co/api/vehicles';
+    return fetch(url)
+      .then(response => response.json())
+      .then(results => this.setState({vehicles: results.results}))
+      .catch(err => console.log(err)) 
+  }
+
 
 
   render() {
-    console.log(this.state.planets)
+    console.log(this.state.people)
     let page;
     if (this.state.movieCrawl) {
     return (
@@ -146,6 +134,7 @@ class App extends Component {
     <WelcomeHome openingCrawl={this.state.opening}
                   displayPeople={this.displayPeople}
                   displayPlanets={this.displayPlanets}
+                  displayVehicles={this.displayVehicles}
                   />
     </div>             
                   );
@@ -155,8 +144,11 @@ class App extends Component {
       <WelcomeHome openingCrawl={this.state.opening}
       displayPeople={this.displayPeople}
       displayPlanets={this.displayPlanets}
+      displayVehicles={this.displayVehicles}
       />
-     <People people={this.state.people}/>
+     <People people={this.state.people}
+             toggleFavorite={this.toggleFavorite}
+     />
      </div>
      );
     } else if (this.state.buttonValue === 'planets') {
@@ -165,11 +157,23 @@ class App extends Component {
        <WelcomeHome openingCrawl={this.state.opening}
        displayPeople={this.displayPeople}
        displayPlanets={this.displayPlanets}
+       displayVehicles={this.displayVehicles}
        />
       <Planets planets={this.state.planets}/>
       </div>
       );
-      }
+    } else if (this.state.buttonValue === 'vehicles') {
+      return ( 
+        <div>
+        <WelcomeHome openingCrawl={this.state.opening}
+        displayPeople={this.displayPeople}
+        displayPlanets={this.displayPlanets}
+        displayVehicles={this.displayVehicles}
+        />
+       <Vehicles vehicles={this.state.vehicles}/>
+       </div>
+       );
+    }
   }
 }
 

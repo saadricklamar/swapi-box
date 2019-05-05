@@ -11,7 +11,7 @@
     margin-left: 250px;
 }
 
-.people {
+.vehicles {
     height: 373px;
     width: 250px;
     margin: 5px;
@@ -19,20 +19,16 @@
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
+    text-align: left;
     font-size: 12px;
-    border: 1px solid white;
+    border: 2px solid gold;
   }
-
-.people:hover {
-  box-shadow: 10px 10px 10px 0 teal;
-  
-}
 
 h2 {
     margin: 0 10px 0 0;
     padding: 0 40px 0 5px;
-    color:white;
+    color: white;
+    font-weight: bold;
     font-family: 'Cinzel', serif;
 }
 
@@ -45,7 +41,7 @@ img {
   background-position: center;
   background-size: cover;
   border-bottom: 2px solid gold;
-  opacity: 1;
+  
 }
 
 .fa-star{
@@ -57,4 +53,3 @@ img {
   cursor: pointer;
   color: white;
 }
-
