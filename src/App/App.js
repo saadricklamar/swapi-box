@@ -16,13 +16,11 @@ class App extends Component {
       vehicles: [],
       movieCrawl: true,
       buttonValue: ''
-      
     }
   }
-  
 
-  fetchMovieCrawl = (arry) => {
-    let movie = arry[0].opening_crawl + '\n' + arry[0].title + '\n' + arry[0].release_date;
+  fetchMovieCrawl = arry => {
+    let movie = arry[0].opening_crawl + '- ' + arry[0].title + ', ' + arry[0].release_date;
     return Promise.all(movie);
   }
 
@@ -35,7 +33,9 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  displayPeople = (e) => {
+  //Methods for fetching people data
+
+  displayPeople = e => {
     let buttonClicked = e.target.value;
     this.setState({buttonValue: buttonClicked})
     this.setState({movieCrawl: false})
@@ -49,7 +49,7 @@ class App extends Component {
       .catch(err => console.log(err)) 
   }
 
-  fetchSpecies = (data) => {
+  fetchSpecies = data => {
     const species = data.map(person => {
       return fetch(person.species)
         .then(response => response.json())
@@ -61,36 +61,38 @@ class App extends Component {
     return Promise.all(species);
   };
 
-  fetchHomeworld = (data) => {
+  fetchHomeworld = data => {
     const homeworld = data.map(person => {
       return fetch(person.homeworld)
         .then(response => response.json())
         .then(result => {
-          const finishedPerson = {
+          const finalPerson = {
             ...person,
             homeworld: result.name,
             population: result.population
           };
-          return finishedPerson;
+          return finalPerson;
         });
     });
     return Promise.all(homeworld);
   };
 
-  displayPlanets = (e) => {
+  //Methods for fetching planets data
+
+  displayPlanets = e => {
     let buttonClicked = e.target.value;
     this.setState({buttonValue: buttonClicked})
     this.setState({movieCrawl: false})
     this.setState({opening: ''})
-    const url = "https://swapi.co/api/planets/";
+    const url = "https://swapi.co/api/planets";
     return fetch(url)
       .then(response => response.json())
-      .then(results => this.fetchResidentsInPlanets(results.results))
+      .then(results => this.fetchResidentsOfPlanets(results.results))
       .then(data => this.setState({planets: data}))
       .catch(err => console.log(err))
   };
   
-  fetchResidentsInPlanets = planets => {
+  fetchResidentsOfPlanets = planets => {
     const mapPlanets = planets.map(planet => {
       return this.mapResidents(planet).then(residentData => ({
         ...planet,
@@ -101,17 +103,20 @@ class App extends Component {
   };
   
   mapResidents = planet => {
-    const residentArray = planet.residents.map(resident => {
+    const residentList = planet.residents.map(resident => {
       return this.fetchResidents(resident);
     });
-    return Promise.all(residentArray);
+    return Promise.all(residentList);
   };
   
   fetchResidents = resident => {
     return fetch(resident).then(response => response.json());
   };
 
-  displayVehicles = (e) => {
+
+  //Methods for fetching vehicles data
+
+  displayVehicles = e => {
     let buttonClicked = e.target.value;
     this.setState({buttonValue: buttonClicked})
     this.setState({movieCrawl: false})
@@ -124,10 +129,7 @@ class App extends Component {
   }
 
 
-
   render() {
-    console.log(this.state.people)
-    let page;
     if (this.state.movieCrawl) {
     return (
     <div className="App">

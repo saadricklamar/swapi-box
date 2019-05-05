@@ -6,20 +6,29 @@ import { shallow } from 'enzyme';
 
 describe('App', () => {
   let mockEvent;
-  let mockOpeningCrawl;
   let mockDisplayPeople;
-  let mockPerson;
   let mockPeople;
+  let mockPlanets;
+  let mockVehicles;
   let wrapper;
 
   beforeEach(() => {
     mockEvent = {target:{value: 'e'}}
-    mockOpeningCrawl = 'It is a period of civil war.Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire. During the battle, Rebel spies managed to steal secret plans to the Empire\'s ultimate weapon, the DEATHSTAR, an armored space station with enough power to destroy an entire planet.Pursued by the Empire\'s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy.... A New Hope 1977-05-25';
     mockDisplayPeople = jest.fn()
     mockPeople = [
       {name: "Luke Skywalker", height: "172", mass: "77", hair_color: "blond", skin_color: "fair"},
       {name: "C-3PO", height: "167", mass: "75", hair_color: "n/a", skin_color: "gold"},
       {name: "R2-D2", height: "96", mass: "32", hair_color: "n/a", skin_color: "white, blue"}
+    ]
+    mockPlanets = [
+      {name: "Alderaan", rotation_period: "24", orbital_period: "364", diameter: "12500", climate: "temperate"},
+      {name: "Yavin IV", rotation_period: "24", orbital_period: "4818", diameter: "10200", climate: "temperate, tropical"},
+      {name: "Hoth", rotation_period: "23", orbital_period: "549", diameter: "7200", climate: "frozen"}
+    ]
+    mockVehicles = [
+      {name: "Sand Crawler", model: "Digger Crawler", manufacturer: "Corellia Mining Corporation", cost_in_credits: "150000", length: "36.8"},
+      {name: "T-16 skyhopper", model: "T-16 skyhopper", manufacturer: "Incom Corporation", cost_in_credits: "14500", length: "10.4"},
+      {name: "X-34 landspeeder", model: "X-34 landspeeder", manufacturer: "SoroSuub Corporation", cost_in_credits: "10550", length: "3.4"}
     ]
     wrapper = shallow(<App
                       />)
@@ -42,24 +51,6 @@ describe('App', () => {
       buttonValue: ''
     });
   });
-  it('fetches pepople when the people button is clicked', () => {
-    const url = 'https://swapi.co/api/people'
-    wrapper.setState({people: mockPeople})
-    wrapper.instance().displayPeople(mockEvent)
-    expect(window.fetch).toHaveBeenCalledWith(url)
-  });
-  it('should return a parsed response if status is ok', async () => {
-    const result = await mockDisplayPeople(mockEvent);
-    expect(result).toEqual(mockPeople);
-  })
-  it('should return an error if status is not ok', async () => {
-    window.fetch = jest.fn().mockImplementataion(() => {
-        return Promise.resolve({
-            ok: false
-        })
-    })
-    await expect(displayPeople()).rejects.toEqual(Error('Error'))
-  })
   it('sets the state of buttonValue when a button is clicked', () => {
     expect(wrapper.state('buttonValue')).toEqual('')
     const mockEvent = {target:{value: 'people'}}
@@ -68,8 +59,53 @@ describe('App', () => {
   })
   it('should change the state of movieCrawl', () => {
     expect(wrapper.state('movieCrawl')).toEqual(true);
-    const mockEvent = {target:{value: 'e'}}
     wrapper.instance().displayPeople(mockEvent);
     expect(wrapper.state('movieCrawl')).toEqual(false);
   });
+  it('ComponentDidMount', () => {
+    const urlFilms = 'https://swapi.co/api/films';
+    wrapper = shallow(<App/>)
+    expect(window.fetch).toHaveBeenCalledWith(urlFilms)
+  })
+
+  //Testing fetch data for people
+
+  it('fetches pepople when the people button is clicked', () => {
+    const url = 'https://swapi.co/api/people'
+    wrapper.setState({people: mockPeople})
+    wrapper.instance().displayPeople(mockEvent)
+    expect(window.fetch).toHaveBeenCalledWith(url)
+  });
+  it('should return a parsed response if status is ok', async () => {
+    const result = await wrapper.instance().displayPeople(mockEvent);
+    expect(result).toEqual(mockPeople);
+  })
+  it('should return an error if status is not ok', async () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+            ok: false
+        })
+    })
+    await expect(wrapper.instance().displayPeople(mockEvent)).rejects.toEqual(Error('Error'))
+  })
+
+  //Testing fetch data for planets
+
+  it('fetches planets when the planets button is clicked', () => {
+    const url = 'https://swapi.co/api/planets'
+    wrapper.setState({planets: mockPlanets})
+    wrapper.instance().displayPlanets(mockEvent)
+    expect(window.fetch).toHaveBeenCalledWith(url)
+  });
+
+   //Testing fetch data for vehicles
+
+   it('fetches vehicles when the vehicles button is clicked', () => {
+    const url = 'https://swapi.co/api/vehicles'
+    wrapper.setState({vehicles: mockVehicles})
+    wrapper.instance().displayVehicles(mockEvent)
+    expect(window.fetch).toHaveBeenCalledWith(url)
+  });
+
+ 
 });

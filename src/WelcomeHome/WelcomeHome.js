@@ -18,9 +18,8 @@ const WelcomeHome = (props) => {
       <section>
         <header>
           <div className='scroll-right'>
-            <button>View <span></span> Favorites  <i class="far fa-heart"></i></button>
+            <button>View <span>0</span> Favorites </button>
           </div>
-          {/* <button>View <span></span> Favorites  <i class="far fa-heart"></i></button> */}
         </header>
         <main className='scroll-up'>
           <p>{props.openingCrawl}</p>
