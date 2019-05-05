@@ -15,18 +15,17 @@
     height: 373px;
     width: 250px;
     margin: 5px;
-    background-color: black;
+    background-color: transparent;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
     font-size: 12px;
-    border: 1px solid white;
+    border: 1px solid orange;
   }
 
 .people:hover {
   box-shadow: 10px 10px 10px 0 teal;
-  
 }
 
 h2 {
@@ -44,16 +43,16 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-bottom: 2px solid gold;
+  border-bottom: 1px solid orange;
   opacity: 1;
 }
 
-.fa-star{
+.fa-star {
   color: white;
   font-size: 26px;
 }
 
-.fa-star:hover{
+.fa-star:hover {
   cursor: pointer;
   color: white;
 }

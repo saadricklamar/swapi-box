@@ -1,8 +1,9 @@
 .App {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
-  }
-  .container {
+}
+
+.container {
     display: grid;
     height: 1500px;
     grid-template-columns: 15% 88%;
@@ -10,7 +11,7 @@
     "sidebar header"
     "sidebar main"
     "sidebar main";
-  }
+}
 
   .sidebar {
     grid-area: sidebar;
@@ -18,10 +19,9 @@
     grid-row: span 6;
     background-color:#2e557c;
     padding-top: 200px;
-    
-  }
+}
 
-  header {
+header {
     grid-area: header;
     grid-row: span 1;
     background-color: #0097A7;
@@ -30,18 +30,18 @@
     font-size: 30px;
     margin: 0;
     padding: 0;
-  }
+}
 
-  h1 {
+h1 {
     position: absolute;
     top: 20px;
     left: 35px;
     margin-top: 0;
     font-size: 30px;
     color: white;
-  }
+}
 
-  main {
+main {
     grid-area: main;
     grid-row: span 1;
     background-color: #DBE3E6;
@@ -54,9 +54,9 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  }
+}
 
-  .sidebar button {
+.sidebar button {
     width: 200px;
     height: 100px;
     background-color: #0097A7;
@@ -70,25 +70,25 @@
     font-size: 30px;
     font-family: 'Orbitron', sans-serif;
     border-bottom: 1px solid white;
-  }
+}
   
-  .sidebar button:hover {
+.sidebar button:hover {
     color: white;
-    background-color: #A9DDD6;
+    background-color: orange;
     transform: translate(0, 1px);
     cursor: pointer;
-  }
+}
 
-  .sidebar button:focus {
+.sidebar button:focus {
     background:  #41D3BD;
   -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
           box-shadow: inset 0px 0px 5px #c1c1c1;
    outline: none;
-  }
+}
 
-  header button {
-    width: 180px;
+header button {
+    width: 220px;
     height: 50px;
     background-color: #2e557c;
     border: none;
@@ -98,32 +98,33 @@
     margin: 25px 0 0 1000px;
     padding: 0 0 0 22px;
     outline: none;
-    font-size: 14px;
+    font-size: 18px;
     font-family: 'Orbitron', sans-serif;
-  }
+}
 
-  header button:hover {
+header button:hover {
     color: white;
     background-color: #9EC5AB;
+    background-color: orange;
     transform: translate(0, 1px);
     cursor: pointer;
-  }
+}
 
-  header button:focus {
-    background: pink;
+header button:focus {
+    background: #41D3BD;
   -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
           box-shadow: inset 0px 0px 5px #c1c1c1;
    outline: none;
-  }
+}
   
-  .scroll-up {
+.scroll-up {
     overflow: hidden;
     position: relative;
     margin: 0;
-   }
+}
 
-   .scroll-up p {
+.scroll-up p {
     color: white;
     position: absolute;
     width: 100%;
@@ -160,12 +161,13 @@
     -webkit-transform: translateY(-100%); /* Browser bug fix */
     transform: translateY(-100%); 
     }
-   }
+}
 
-   .fa-galactic-senate {
+.fa-galactic-senate {
      position: absolute;
      top: 80px;
      left: 80px;
      font-size: 86px;
-     color: white;
-   }
+     color: orange;
+}
+   

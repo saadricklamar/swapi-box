@@ -15,7 +15,7 @@
     height: 373px;
     width: 250px;
     margin: 5px;
-    background-color: black;
+    background-color: transparent;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -40,7 +40,7 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-bottom: 2px solid gold;
+  border-bottom: 1px solid orange;
   
 }
 
