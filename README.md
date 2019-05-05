@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## SWAPibox
 
 SWAPI-BOX is a web based application built in React that uses asynchronous fetch calls to a Star Wars API. Character, planet, vehicle, film, species, and starshp data is then cleaned and organized into a fun UI with reusable React components. Users can browse these various categories and bookmark their favorite cards.
