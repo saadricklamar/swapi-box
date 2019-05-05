@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Planets.css';
-
 
 const Planets = (props) => {
   const cardInfo = props.planets.map(card => {
