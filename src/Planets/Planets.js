@@ -17,7 +17,7 @@ const Planets = (props) => {
                         return resident.name + ', ';
                     }
                 })}
-                    </h2>
+                </h2>
             </article>
   })
     return (
