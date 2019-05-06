@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import WelcomeHome from '../WelcomeHome/WelcomeHome';
-import People from '../People/People/';
+import People from '../People/People';
 import Planets from '../Planets/Planets';
 import Vehicles from '../Vehicles/Vehicles';
 
@@ -130,50 +130,39 @@ class App extends Component {
 
 
   render() {
+    let welcomeHome =  <WelcomeHome openingCrawl={this.state.opening}
+    displayPeople={this.displayPeople}
+    displayPlanets={this.displayPlanets}
+    displayVehicles={this.displayVehicles}
+    />
     if (this.state.movieCrawl) {
     return (
-    <div className="App">
-    <WelcomeHome openingCrawl={this.state.opening}
-                  displayPeople={this.displayPeople}
-                  displayPlanets={this.displayPlanets}
-                  displayVehicles={this.displayVehicles}
-                  />
-    </div>             
+      <div className="App">
+      {welcomeHome}
+      </div>             
                   );
     } else if (this.state.buttonValue === 'people') {
      return ( 
       <div>
-      <WelcomeHome openingCrawl={this.state.opening}
-      displayPeople={this.displayPeople}
-      displayPlanets={this.displayPlanets}
-      displayVehicles={this.displayVehicles}
-      />
-     <People people={this.state.people}
+      {welcomeHome}
+      <People people={this.state.people}
              toggleFavorite={this.toggleFavorite}
-     />
+      />
      </div>
      );
     } else if (this.state.buttonValue === 'planets') {
       return ( 
-       <div>
-       <WelcomeHome openingCrawl={this.state.opening}
-       displayPeople={this.displayPeople}
-       displayPlanets={this.displayPlanets}
-       displayVehicles={this.displayVehicles}
-       />
+      <div>
+      {welcomeHome}
       <Planets planets={this.state.planets}/>
       </div>
       );
     } else if (this.state.buttonValue === 'vehicles') {
       return ( 
-        <div>
-        <WelcomeHome openingCrawl={this.state.opening}
-        displayPeople={this.displayPeople}
-        displayPlanets={this.displayPlanets}
-        displayVehicles={this.displayVehicles}
-        />
-       <Vehicles vehicles={this.state.vehicles}/>
-       </div>
+      <div>
+      {welcomeHome}
+      <Vehicles vehicles={this.state.vehicles}/>
+      </div>
        );
     }
   }
