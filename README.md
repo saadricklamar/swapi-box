@@ -7,7 +7,7 @@ SWAPI-BOX is a web based application built in React that uses asynchronous fetch
 * Asynchronously call and fetch data when the user requests it.
 * Implement SRP (single responsbility principle) in application logic.
 * Create modular, reusable React components.
-* Create a well thought-out UI.
+* Create a well constructed UI.
 * Use propTypes to manipulate props passed to each component.
 * Write meaningful, comprehensive unit and integration tests.
 
