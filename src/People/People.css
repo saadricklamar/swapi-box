@@ -1,38 +1,46 @@
 .cardsContainer {
-    position: absolute;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: auto;
-    grid-gap: 1rem;
-    width: 85%;
-    margin: 0 auto;
-    padding-bottom: 10px;
-    margin-top: -1350px;
-    margin-left: 250px;
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  width: 85%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  margin-top: -1350px;
+  margin-left: 300px;
 }
 
 .people {
-    height: 373px;
-    width: 250px;
-    margin: 5px;
-    background-color: transparent;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    font-size: 12px;
-    border: 1px solid orange;
-  }
+  height: 373px;
+  width: 250px;
+  margin: 5px;
+  background-color: transparent;
+  border-radius: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: 12px;
+  border: 1px solid white;
+  cursor: pointer;
+}
 
 .people:hover {
-  box-shadow: 10px 10px 10px 0 teal;
+  box-shadow: 5px 5px 5px 0 orange;
 }
 
 h2 {
-    margin: 0 10px 0 0;
-    padding: 0 40px 0 5px;
-    color:white;
-    font-family: 'Cinzel', serif;
+  margin: 0 10px 0 0;
+  padding: 0 40px 0 5px;
+  font-weight: lighter;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
 }
 
 img {
@@ -43,17 +51,7 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-bottom: 1px solid orange;
-  opacity: 1;
+  border-bottom: 1px solid gray;
 }
 
-.fa-star {
-  color: white;
-  font-size: 26px;
-}
-
-.fa-star:hover {
-  cursor: pointer;
-  color: white;
-}
 

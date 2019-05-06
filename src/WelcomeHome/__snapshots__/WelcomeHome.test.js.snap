@@ -18,19 +18,16 @@ exports[`WelcomeHome Should match the snapshot 1`] = `
       />
       <button
         class="active"
-        onClick={[MockFunction]}
         value="people"
       >
         People
       </button>
       <button
-        onClick={[MockFunction]}
         value="planets"
       >
         Planets
       </button>
       <button
-        onClick={[MockFunction]}
         value="vehicles"
       >
         Vehicles
@@ -50,16 +47,12 @@ exports[`WelcomeHome Should match the snapshot 1`] = `
         <div
           className="scroll-right"
         >
-          <p>
-            May the force be with you...
-          </p>
           <button>
             View 
-            <span />
-             Favorites  
-            <i
-              class="far fa-heart"
-            />
+            <span>
+              0
+            </span>
+             Favorites 
           </button>
         </div>
       </header>

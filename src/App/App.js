@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import WelcomeHome from '../WelcomeHome/WelcomeHome';
-import People from '../People/People';
+import People from '../People/People/';
 import Planets from '../Planets/Planets';
 import Vehicles from '../Vehicles/Vehicles';
 
