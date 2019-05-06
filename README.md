@@ -28,6 +28,10 @@ SWAPI-BOX is a web based application built in React that uses asynchronous fetch
 ![Swapicards](https://user-images.githubusercontent.com/42000931/57202566-ee2eca00-6f63-11e9-9aff-6f8745ecad56.png)
 
 
+# Wireframe
+
+![wireframe](https://user-images.githubusercontent.com/42000931/57230930-b876f900-6fd6-11e9-9477-9588e8aef7b6.png)
+
 
 # Contributors
 
