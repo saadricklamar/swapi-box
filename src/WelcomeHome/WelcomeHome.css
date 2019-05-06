@@ -5,7 +5,7 @@
 
 .container {
     display: grid;
-    height: 1500px;
+    height: 1800px;
     grid-template-columns: 15% 88%;
     grid-template-areas:
     "sidebar header"
@@ -48,7 +48,7 @@ main {
     grid-area: main;
     grid-row: span 1;
     background-color: #DBE3E6;
-    height: 1500px;
+    height: 1800px;
     width: 100%;
     display: flex;
     margin: 0;
