@@ -13,12 +13,13 @@
     "sidebar main";
 }
 
-  .sidebar {
+.sidebar {
     grid-area: sidebar;
     width: 100%;
     grid-row: span 6;
     background-color:#2e557c;
-    padding-top: 200px;
+    padding-top: 200px; 
+    
 }
 
 header {
@@ -30,6 +31,8 @@ header {
     font-size: 30px;
     margin: 0;
     padding: 0;
+    border-bottom: 1px inset white;  
+    border-left: 1px solid white;
 }
 
 h1 {
@@ -54,6 +57,7 @@ main {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    border-left: 1px solid white;
 }
 
 .sidebar button {
@@ -85,6 +89,7 @@ main {
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
           box-shadow: inset 0px 0px 5px #c1c1c1;
    outline: none;
+   border-left: 5px solid white;
 }
 
 header button {
@@ -100,6 +105,7 @@ header button {
     outline: none;
     font-size: 18px;
     font-family: 'Orbitron', sans-serif;
+    border: 1px solid white;
 }
 
 header button:hover {
