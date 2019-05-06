@@ -21,6 +21,8 @@ SWAPI-BOX is a web based application built in React that uses asynchronous fetch
 
 4. Run `npm start` in terminal to start server.
 
+# Gif
+
 
 # Contributors
 
