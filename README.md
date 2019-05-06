@@ -2,7 +2,7 @@
 
 SWAPI-BOX is a web based application built in React that uses asynchronous fetch calls to a Star Wars API. Character, planet, vehicle, film, species, and starshp data is then organized into a fun UI with reusable React components. Users can browse these various categories and bookmarking their favorite cards is soon to come. 
 
-# Project Goals:
+## Project Goals:
 
 * Asynchronously call and fetch data when the user requests it.
 * Implement SRP (single responsbility principle) in application logic.
@@ -11,7 +11,7 @@ SWAPI-BOX is a web based application built in React that uses asynchronous fetch
 * Use propTypes to manipulate props passed to each component.
 * Write meaningful, comprehensive unit and integration tests.
 
-# Installation and Setup Instructions
+## Installation and Setup Instructions
 
 1. Clone down this repository.
 
@@ -21,18 +21,18 @@ SWAPI-BOX is a web based application built in React that uses asynchronous fetch
 
 4. Run `npm start` in terminal to start server.
 
-# Desktop View
+## Desktop View
 
 ![Swapibox jpg](https://user-images.githubusercontent.com/42000931/57202561-e2db9e80-6f63-11e9-95be-fc04fbc31693.png)
 
 ![Swapicards](https://user-images.githubusercontent.com/42000931/57202566-ee2eca00-6f63-11e9-9aff-6f8745ecad56.png)
 
 
-# Wireframe
+## Wireframe
 
 ![wireframe](https://user-images.githubusercontent.com/42000931/57230930-b876f900-6fd6-11e9-9477-9588e8aef7b6.png)
 
 
-# Contributors
+## Contributors
 
 * SaadBaradan https://github.com/saadricklamar
