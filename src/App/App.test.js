@@ -74,8 +74,8 @@ describe('App', () => {
     wrapper.instance().displayPeople(mockEvent)
     expect(window.fetch).toHaveBeenCalledWith(url)
   });
-  // it('should return a parsed response if status is ok', async () => {
-  //   const result = await mockDisplayPeople(mockEvent);
+  // it('should return a parsed response if status is ok', () => {
+  //   const result = mockDisplayPeople(mockEvent);
   //   expect(result).toEqual(mockPeople);
   // })
   it('if people fetch fails, error displays', async() => {
@@ -108,7 +108,7 @@ describe('App', () => {
 
    //Testing fetch data for vehicles
 
-   it('fetches vehicles when the vehicles button is clicked', () => {
+  it('fetches vehicles when the vehicles button is clicked', () => {
     const url = 'https://swapi.co/api/vehicles'
     wrapper.setState({vehicles: mockVehicles})
     wrapper.instance().displayVehicles(mockEvent)

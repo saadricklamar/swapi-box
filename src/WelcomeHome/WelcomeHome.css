@@ -19,7 +19,6 @@
     grid-row: span 6;
     background-color:#2e557c;
     padding-top: 200px; 
-    
 }
 
 header {
@@ -84,6 +83,7 @@ main {
 }
 
 .sidebar button:focus {
+    color: orange;
     background:  #41D3BD;
   -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;

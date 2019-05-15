@@ -11,7 +11,7 @@ const WelcomeHome = (props) => {
          <button value='people' onClick={props.displayPeople} class='active'>People</button>
          <button value='planets' onClick={props.displayPlanets}>Planets</button>
          <button value='vehicles' onClick={props.displayVehicles}>Vehicles</button>
-         <button>Films</button>
+         <button value='films' onClick={props.displayFilms}>Films</button>
          <button>Species</button>
          <button>Starships</button>
       </section>
