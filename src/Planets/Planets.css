@@ -1,18 +1,66 @@
-.planets {
-    height: 500px;
-    width: 250px;
-    margin: 5px;
-    background-color:transparent;
-    border-radius: 1px;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: left;
-    font-size: 12px;
-    border: 1px solid white;
-    cursor: pointer;
-  
+img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
   }
 
-  .planets:hover {
-    box-shadow: 5px 5px 5px 0 orange;
+.card {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 400px;
+  width: 250px;
+  margin: 30px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-background {
+    background-color: rgb(40, 41, 53);
+    height: 400px;
+    width: 250px;
+    opacity: .001;
+    transition: all .3s ease;
+    position: absolute;
+}
+
+.dark-background:hover {
+    cursor: pointer;
+    opacity: .90;
+    color: white;
   }
+
+.name {
+    font-weight: 500;
+    margin: 0px;
+    margin-bottom: 20px;
+    max-width: 85%;
+    font-size: 2em;
+}
+  
+h2 {
+    display: block;
+    font-weight: 200;
+    font-style: italic;  
+    font-size: 1.25em;
+    margin: 15px auto;
+  }
+  
+.fa-star {
+    font-size: 1.9em;
+    margin: 8px;
+    transition: all .3s ease;
+    top: 0;
+    right: 0;
+    position: absolute;
+    z-index: 3;
+  }
+
+.fa-star:hover {
+      cursor: pointer;
+      color: gold;
+    }
+
+  
