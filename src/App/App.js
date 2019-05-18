@@ -5,7 +5,9 @@ import People from '../People/People';
 import Planets from '../Planets/Planets';
 import Vehicles from '../Vehicles/Vehicles';
 import Films from '../Films/Films';
-import { fetchSpecies } from '../fetchCalls/fetchCalls';
+import Species from '../Species/Species';
+import Starships from '../Starships/Starships';
+
 
 
 class App extends Component {
@@ -226,14 +228,14 @@ class App extends Component {
       return ( 
       <div>
       {welcomeHome}
-      {/* <Films films={this.state.films}/> */}
+      <Species species={this.state.species}/>
       </div>
        );
     } else if (this.state.buttonValue === 'starships') {
       return ( 
       <div>
       {welcomeHome}
-      {/* <Films films={this.state.films}/> */}
+      <Starships starships={this.state.starships}/>
       </div>
        );
     }
