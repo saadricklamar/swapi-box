@@ -5,6 +5,7 @@ import People from '../People/People';
 import Planets from '../Planets/Planets';
 import Vehicles from '../Vehicles/Vehicles';
 import Films from '../Films/Films';
+import { fetchSpecies } from '../fetchCalls/fetchCalls';
 
 
 class App extends Component {
@@ -16,6 +17,8 @@ class App extends Component {
       planets: [],
       vehicles: [],
       films: [],
+      species: [],
+      starships: [],
       movieCrawl: true,
       buttonValue: ''
     }
@@ -144,14 +147,45 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  // Method for fetching species data
+
+  displaySpecies = e => {
+    let buttonClicked = e.target.value;
+    this.setState({buttonValue: buttonClicked})
+    this.setState({movieCrawl: false})
+    this.setState({opening: ''})
+    const urlSpecies = 'https://swapi.co/api/species';
+    fetch(urlSpecies)
+      .then(response => response.json())
+      .then(results => this.setState({species: results.results}))
+      .catch(err => console.log(err))
+  }
+
+   // Method for fetching starships data
+
+   displayStarships = e => {
+    let buttonClicked = e.target.value;
+    this.setState({buttonValue: buttonClicked})
+    this.setState({movieCrawl: false})
+    this.setState({opening: ''})
+    const urlSpecies = 'https://swapi.co/api/starships';
+    fetch(urlSpecies)
+      .then(response => response.json())
+      .then(results => this.setState({starships: results.results}))
+      .catch(err => console.log(err))
+  }
+
 
   render() {
+    console.log(this.state.starships)
     let welcomeHome =  <WelcomeHome openingCrawl={this.state.opening}
-    displayPeople={this.displayPeople}
-    displayPlanets={this.displayPlanets}
-    displayVehicles={this.displayVehicles}
-    displayFilms={this.displayFilms}
-    />
+                                    displayPeople={this.displayPeople}
+                                    displayPlanets={this.displayPlanets}
+                                    displayVehicles={this.displayVehicles}
+                                    displayFilms={this.displayFilms}
+                                    displaySpecies={this.displaySpecies}
+                                    displayStarships={this.displayStarships}
+                      />
     if (this.state.movieCrawl) {
     return (
       <div className="App">
@@ -186,6 +220,20 @@ class App extends Component {
       <div>
       {welcomeHome}
       <Films films={this.state.films}/>
+      </div>
+       );
+    } else if (this.state.buttonValue === 'species') {
+      return ( 
+      <div>
+      {welcomeHome}
+      {/* <Films films={this.state.films}/> */}
+      </div>
+       );
+    } else if (this.state.buttonValue === 'starships') {
+      return ( 
+      <div>
+      {welcomeHome}
+      {/* <Films films={this.state.films}/> */}
       </div>
        );
     }
