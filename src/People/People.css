@@ -11,47 +11,4 @@
   margin-left: 300px;
 }
 
-.people {
-  height: 373px;
-  width: 250px;
-  margin: 5px;
-  background-color: transparent;
-  border-radius: 1px;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  font-size: 12px;
-  border: 1px solid white;
-  cursor: pointer;
-}
-
-.people:hover {
-  box-shadow: 5px 5px 5px 0 orange;
-}
-
-h2 {
-  margin: 0 10px 0 0;
-  padding: 0 40px 0 5px;
-  font-weight: lighter;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.name {
-  font-size: 20px;
-  font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
-}
-
-img {
-  width: 250px;
-  height: 160px;
-  margin: 0;
-  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ); 
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-bottom: 1px solid gray;
-}
-
 
