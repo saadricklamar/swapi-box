@@ -22,7 +22,10 @@ class App extends Component {
       species: [],
       starships: [],
       movieCrawl: true,
-      buttonValue: ''
+      buttonValue: '',
+      favorites: [],
+      showFavorites: false,
+      favoriteCounter: 0
     }
   }
 
@@ -44,9 +47,7 @@ class App extends Component {
 
   displayPeople = e => {
     let buttonClicked = e.target.value;
-    this.setState({buttonValue: buttonClicked})
-    this.setState({movieCrawl: false})
-    this.setState({opening: ''})
+    this.setState({buttonValue: buttonClicked, movieCrawl: false, opening: '', showFavorites: false})
     const url = 'https://swapi.co/api/people';
     return fetch(url)
       .then(response => response.json())
@@ -88,9 +89,7 @@ class App extends Component {
 
   displayPlanets = e => {
     let buttonClicked = e.target.value;
-    this.setState({buttonValue: buttonClicked})
-    this.setState({movieCrawl: false})
-    this.setState({opening: ''})
+    this.setState({buttonValue: buttonClicked, movieCrawl: false, opening: '', showFavorites: false})
     const url = "https://swapi.co/api/planets";
     return fetch(url)
       .then(response => response.json())
@@ -125,9 +124,7 @@ class App extends Component {
 
   displayVehicles = e => {
     let buttonClicked = e.target.value;
-    this.setState({buttonValue: buttonClicked})
-    this.setState({movieCrawl: false})
-    this.setState({opening: ''})
+    this.setState({buttonValue: buttonClicked, movieCrawl: false, opening: '', showFavorites: false})
     const url = 'https://swapi.co/api/vehicles';
     return fetch(url)
       .then(response => response.json())
@@ -139,9 +136,7 @@ class App extends Component {
 
   displayFilms = e => {
     let buttonClicked = e.target.value;
-    this.setState({buttonValue: buttonClicked})
-    this.setState({movieCrawl: false})
-    this.setState({opening: ''})
+    this.setState({buttonValue: buttonClicked, movieCrawl: false, opening: '', showFavorites: false})
     const urlFilms = 'https://swapi.co/api/films';
     fetch(urlFilms)
       .then(response => response.json())
@@ -153,9 +148,7 @@ class App extends Component {
 
   displaySpecies = e => {
     let buttonClicked = e.target.value;
-    this.setState({buttonValue: buttonClicked})
-    this.setState({movieCrawl: false})
-    this.setState({opening: ''})
+    this.setState({buttonValue: buttonClicked, movieCrawl: false, opening: '', showFavorites: false})
     const urlSpecies = 'https://swapi.co/api/species';
     fetch(urlSpecies)
       .then(response => response.json())
@@ -167,9 +160,7 @@ class App extends Component {
 
    displayStarships = e => {
     let buttonClicked = e.target.value;
-    this.setState({buttonValue: buttonClicked})
-    this.setState({movieCrawl: false})
-    this.setState({opening: ''})
+    this.setState({buttonValue: buttonClicked, movieCrawl: false, opening: '', showFavorites: false})
     const urlSpecies = 'https://swapi.co/api/starships';
     fetch(urlSpecies)
       .then(response => response.json())
@@ -177,9 +168,22 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  // Methods for toggling/displaying favorites
+  
+  toggleFavorite = (card) => {
+    this.state.favoriteCounter++;
+    const favoriteCard = this.state.films.filter(film => film.title === card.title).pop();
+    const newFavorites = [...this.state.favorites, favoriteCard]
+    this.setState({favorites: newFavorites})
+  }
+
+  displayFavorites = (e) => {
+    e.preventDefault();
+    this.setState({showFavorites: true})
+  }
+
 
   render() {
-    console.log(this.state.starships)
     let welcomeHome =  <WelcomeHome openingCrawl={this.state.opening}
                                     displayPeople={this.displayPeople}
                                     displayPlanets={this.displayPlanets}
@@ -187,6 +191,8 @@ class App extends Component {
                                     displayFilms={this.displayFilms}
                                     displaySpecies={this.displaySpecies}
                                     displayStarships={this.displayStarships}
+                                    displayFavorites={this.displayFavorites}
+                                    favoriteCounter={this.state.favoriteCounter}
                       />
     if (this.state.movieCrawl) {
     return (
@@ -194,6 +200,24 @@ class App extends Component {
       {welcomeHome}
       </div>             
                   );
+    } else if (this.state.showFavorites) {
+      return (
+        <div className="App">
+        {welcomeHome}
+        <div className='cardsContainer'>
+        {this.state.favorites.map(favorite => {
+          let name = favorite.title;
+          return(<article className='card' key={favorite.id}>
+                  <img src={require(`../images/${name}.jpeg`)}/>
+                    <i className='fas fa-star'></i> 
+                    <div className='dark-background'>
+                      <h2 className='name'>{favorite.title}</h2>
+                    </div>
+                </article>)
+        })}
+        </div>
+        </div>
+      )
     } else if (this.state.buttonValue === 'people') {
      return ( 
       <div>
@@ -221,7 +245,7 @@ class App extends Component {
       return ( 
       <div>
       {welcomeHome}
-      <Films films={this.state.films}/>
+      <Films films={this.state.films} toggleFavorite={this.toggleFavorite}/>
       </div>
        );
     } else if (this.state.buttonValue === 'species') {

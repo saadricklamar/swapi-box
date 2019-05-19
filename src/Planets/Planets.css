@@ -46,6 +46,7 @@ h2 {
     font-style: italic;  
     font-size: 1.25em;
     margin: 15px auto;
+    padding: 10px;
   }
   
 .fa-star {
@@ -58,9 +59,9 @@ h2 {
     z-index: 3;
   }
 
-.fa-star:hover {
+.fa-star:hover
+    {
       cursor: pointer;
       color: gold;
     }
 
-  

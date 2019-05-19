@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from '../logo.svg';
 import './WelcomeHome.css';
 
 const WelcomeHome = (props) => {
@@ -14,11 +15,12 @@ const WelcomeHome = (props) => {
          <button value='films' onClick={props.displayFilms}>Films</button>
          <button value='species' onClick={props.displaySpecies}>Species</button>
          <button value='starships' onClick={props.displayStarships}>Starships</button>
+         <img src={logo} className="App-logo" alt="logo" />
       </section>
       <section>
         <header>
           <div className='scroll-right'>
-            <button>View <span>0</span> Favorites </button>
+            <button onClick={props.displayFavorites}>View <span>{props.favoriteCounter}</span> Favorites </button>
           </div>
         </header>
         <main className='scroll-up'>

@@ -6,7 +6,7 @@ const Planets = (props) => {
     let planetName = card.name;
       return  <article className='card'>
                  <img src={require(`../images/${planetName}.jpeg`)}/>
-                 <i className='fas fa-star'></i> 
+                 <i className='fas fa-star favorite'></i> 
                  <div className='dark-background'>
                   <h2 className='name'>{card.name}</h2>
                   <h2 className='terrain'>Terrain: {card.terrain}</h2>
