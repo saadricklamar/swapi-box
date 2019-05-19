@@ -9,14 +9,15 @@ const Films = (props) => {
       episode: card.episode_id,
       released: card.release_date,
       director: card.director,
-      id: card.episode_id
+      id: card.episode_id,
+      favorite: false
     })})
-    
+
    const cardInfo = cleanCard.map(card => {
     let filmName = card.title;
-    return  <article className='card' key={card.id}>
+    return  <article className='card' key={card.id} >
               <img src={require(`../images/${filmName}.jpeg`)}/>
-              <i className='fas fa-star'></i> 
+              <i className='fas fa-star' onClick={() => props.toggleFavorite(card)}></i> 
               <div className='dark-background'>
                 <h2 className='name'>{card.title}</h2>
                 <h2>Episode: {card.episode}</h2>
