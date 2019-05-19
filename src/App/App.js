@@ -172,8 +172,7 @@ class App extends Component {
   
   toggleFavorite = (card) => {
     this.state.favoriteCounter++;
-    const favoriteCard = this.state.films.filter(film => film.title === card.title).pop();
-    const newFavorites = [...this.state.favorites, favoriteCard]
+    const newFavorites = [...this.state.favorites, card]
     this.setState({favorites: newFavorites})
   }
 
@@ -184,6 +183,7 @@ class App extends Component {
 
 
   render() {
+    console.log(this.state.favorites)
     let welcomeHome =  <WelcomeHome openingCrawl={this.state.opening}
                                     displayPeople={this.displayPeople}
                                     displayPlanets={this.displayPlanets}
@@ -222,23 +222,21 @@ class App extends Component {
      return ( 
       <div>
       {welcomeHome}
-      <People people={this.state.people}
-             toggleFavorite={this.toggleFavorite}
-      />
+      <People people={this.state.people} toggleFavorite={this.toggleFavorite}/>
      </div>
      );
     } else if (this.state.buttonValue === 'planets') {
       return ( 
       <div>
       {welcomeHome}
-      <Planets planets={this.state.planets}/>
+      <Planets planets={this.state.planets} toggleFavorite={this.toggleFavorite}/>
       </div>
       );
     } else if (this.state.buttonValue === 'vehicles') {
       return ( 
       <div>
       {welcomeHome}
-      <Vehicles vehicles={this.state.vehicles}/>
+      <Vehicles vehicles={this.state.vehicles} toggleFavorite={this.toggleFavorite}/>
       </div>
        );
     } else if (this.state.buttonValue === 'films') {
@@ -252,14 +250,14 @@ class App extends Component {
       return ( 
       <div>
       {welcomeHome}
-      <Species species={this.state.species}/>
+      <Species species={this.state.species} toggleFavorite={this.toggleFavorite}/>
       </div>
        );
     } else if (this.state.buttonValue === 'starships') {
       return ( 
       <div>
       {welcomeHome}
-      <Starships starships={this.state.starships}/>
+      <Starships starships={this.state.starships} toggleFavorite={this.toggleFavorite}/>
       </div>
        );
     }

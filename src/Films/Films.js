@@ -9,8 +9,7 @@ const Films = (props) => {
       episode: card.episode_id,
       released: card.release_date,
       director: card.director,
-      id: card.episode_id,
-      favorite: false
+      id: card.episode_id
     })})
 
    const cardInfo = cleanCard.map(card => {
