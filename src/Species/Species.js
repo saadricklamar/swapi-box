@@ -3,9 +3,9 @@ import './Species.css';
 
 const Species = (props) => {
   const cardInfo = props.species.map(card => {
-    let filmName = card.title;
+    let filmName = card.name;
       return  <article className='card'>
-                {/* <img src={require(`../images/${filmName}.jpeg`)}/> */}
+                <img src={require(`../images/${filmName}.jpeg`)}/>
                 <i className='fas fa-star'></i> 
                 <div className='dark-background'>
                   <h2 className='name'>{card.name}</h2>
