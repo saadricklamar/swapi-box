@@ -27,12 +27,6 @@ SWAPI-BOX was our first project of Module 3 that required us to use asynchronous
 
 ![SwapiBox](https://user-images.githubusercontent.com/42000931/57989154-dcfdb700-7a53-11e9-82e0-ce5871f4980d.png)
 
-
-## Wireframe
-
-![wireframe](https://user-images.githubusercontent.com/42000931/57230930-b876f900-6fd6-11e9-9477-9588e8aef7b6.png)
-
-
 ## Contributors
 
 * SaadBaradan https://github.com/saadricklamar
